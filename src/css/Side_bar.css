@@ -1,0 +1,17 @@
+.container-side {
+    width: 40vh; 
+    position: fixed; 
+    height: 100vh; 
+    background-image: url('/src/Poze/background.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+}
+
+.container-side img {
+    max-width: 80%;
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+}

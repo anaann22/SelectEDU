@@ -1,4 +1,4 @@
-body {
+.body {
     margin: 0;
     padding: 0;
     background-image: url('/src/Poze/background.png');
@@ -45,7 +45,7 @@ body {
     transform: translate(2px, 2px); 
 }
 
-img {
+.img {
     max-width: 80%; 
     height: auto;
 }
