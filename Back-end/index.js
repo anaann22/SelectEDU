@@ -2,10 +2,13 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import UserModel from './models/User.js';
+import cors from 'cors';
+
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 mongoose
   .connect('mongodb+srv://ana:K9Wi9CNddY1iAl0x@cluster0.yivkgdq.mongodb.net/selectEDU?retryWrites=true&w=majority')

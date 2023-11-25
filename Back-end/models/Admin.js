@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema({
+const AdminSchema = new mongoose.Schema({
   Nume: {
     type: String,
     required: true
@@ -9,16 +9,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  nrMatricol: {
-    type: String,
-    required: true,
-    unique: true
-  },
   faculty: {
     type: String
-  },
-  yearOfStudy: {
-    type: Number
   },
   email: {
     type: String,
@@ -28,15 +20,9 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  materie1: {
-    type: String
-  },
-  materie2: {
-    type: String
   }
 }, {
   timestamps: true
 });
 
-export default mongoose.model('User', UserSchema);
+export default mongoose.model('Admin', AdminSchema);
