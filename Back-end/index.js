@@ -2,6 +2,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import UserModel from './models/User.js';
+import AdminModel from './models/Admin.js';
 import cors from 'cors';
 
 
@@ -55,6 +56,50 @@ app.post('/auth/login', async (req, res) => {
     });
   }
 });
+
+// ... (other imports)
+
+app.post('/auth/admin-login', async (req, res) => {
+  try {
+    const admin = await AdminModel.findOne({ email: req.body.email });
+
+    if (!admin) {
+      return res.status(404).json({
+        message: 'Admin inexistent',
+      });
+    }
+
+    // Compare passwords
+    if (req.body.password !== admin.password) {
+      return res.status(404).json({
+        message: 'Login sau parola incorecta',
+      });
+    }
+
+    const token = jwt.sign(
+      {
+        _id: admin._id,
+      },
+      'secret',
+      {
+        expiresIn: '30d',
+      },
+    );
+
+    const { password, ...adminData } = admin._doc;
+    res.json({
+      ...adminData,
+      token,
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: 'Logare esuata',
+    });
+  }
+});
+
 
 app.listen(8080, (err) => {
   if (err) {
