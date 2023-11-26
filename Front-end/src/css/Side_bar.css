@@ -7,11 +7,44 @@
     background-repeat: no-repeat;
     overflow: hidden;
     display: flex;
+    flex-direction: column; 
 }
 
-.container-side img {
-    max-width: 80%;
-    height: auto; 
-    display: block;
-    margin: 0 auto; 
+.img {
+    max-width: 30%;
+    max-height: 30%;
 }
+
+.container-side .first {
+    height: 100%;
+    display: flex;
+    padding-top: 7%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.container-side .third {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button {
+    background-color: #98A7CD;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px 10px 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #a9b3cc;
+  }

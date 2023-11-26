@@ -1,11 +1,26 @@
 import '../css/Side_bar.css';
 import carte from '../Poze/books.png';
+import AddMaterieCard from '../Components/AddMaterieCard.js';
+import { useState } from 'react';
 
 const Side_bar = () => {
+    const [showAddMaterieCard, setShowAddMaterieCard] = useState(false);
+
+    const handleAddMaterie = (newMaterie) => {
+
+        console.log('Adding new Materie:', newMaterie);
+
+    };
+
     return (
         <div className='container-side'>
-            <a>ale</a>
-            <img source={carte} alt="img"/>
+            <div className='containder-side first'>
+                <img src={carte} alt="img" className='img' />
+                <button className="button" onClick={() => setShowAddMaterieCard(!showAddMaterieCard)}>
+                    {showAddMaterieCard ? 'Inapoi' : 'Adaugare materie'}
+                </button>
+                {showAddMaterieCard && <AddMaterieCard onAddMaterie={handleAddMaterie} />}
+            </div>
         </div>
     );
 };

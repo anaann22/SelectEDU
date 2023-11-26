@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import UserModel from './models/User.js';
 import AdminModel from './models/Admin.js';
 import cors from 'cors';
-
+import Materie from './models/Materie.js';
 
 const app = express();
 
@@ -15,6 +15,14 @@ mongoose
   .connect('mongodb+srv://ana:K9Wi9CNddY1iAl0x@cluster0.yivkgdq.mongodb.net/selectEDU?retryWrites=true&w=majority')
   .then(() => console.log('DB OK'))
   .catch((err) => console.log('DB ERROR', err));
+
+  app.listen(8080, (err) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('Server ok');
+  });
+  
 
 app.post('/auth/login', async (req, res) => {
   try {
@@ -101,9 +109,55 @@ app.post('/auth/admin-login', async (req, res) => {
 });
 
 
-app.listen(8080, (err) => {
-  if (err) {
-    return console.log(err);
+
+app.get('/api/all-image-info', async (req, res) => {
+  try {
+    const allMaterie = await Materie.find();
+
+    const materieInfoArray = allMaterie.map((materie) => ({
+      id: materie._id.toString(),
+      Nume_Materie: materie.Nume_Materie,
+      Cod_Materie: materie.Cod_Materie,
+      Profesor_Email: materie.Profesor_Email,
+      Profesor_Nume: materie.Profesor_Nume,
+      Profesor_Prenume: materie.Profesor_Prenume,
+      Faculty: materie.Faculty,
+      Poza_Materie: `data:image/png;base64,${materie.Poza_Materie.toString('base64')}`,
+      Semestru: materie.Semestru,
+    }));
+
+    res.header('Content-Type', 'application/json');
+    
+    res.json(materieInfoArray);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
   }
-  console.log('Server ok');
+  
 });
+
+
+
+app.post('/api/add-materie',async (req, res) => {
+  try {
+    const newMaterie = new Materie(req.body); 
+    await newMaterie.save();
+
+    res.status(201).json({ message: 'Materie added successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+
+});
+
+
+
+
+
+
+
+
+
+
+
