@@ -18,57 +18,69 @@ const Login_Page = () => {
     console.log(email, password);
   
     try {
-      // Try to log in as a user
-      console.log('Attempting user login...');
-      const userResponse = await axios.post('http://localhost:8080/auth/login', {
-        email,
-        password,
-      });
-  
-      console.log('User Response:', userResponse.data);
-  
-      if (userResponse && userResponse.data) {
-        const { token } = userResponse.data;
-        localStorage.setItem("token", token);
-  
-        setSuccessMessage("Login successful");
+      try {
+        console.log('Attempting user login...');
+        const userResponse = await axios.post('http://localhost:8080/auth/login', {
+          email,
+          password,
+        });
+      
+        console.log('User Response:', userResponse.data);
+      
+        if (userResponse && userResponse.data && userResponse.data.token) {
+          const { token } = userResponse.data;
+          localStorage.setItem('token', token);
+      
+          setSuccessMessage('Login successful');
+          setSnackbarOpen(true);
+      
+          // Redirect to the user dashboard
+          navigate('/Choice');
+          return;
+        }
+      
+        // If login attempt fails
+        setErrorMessage('Login failed');
         setSnackbarOpen(true);
-  
-        // Redirect to the user dashboard
-        navigate('/Choice');
-        return;
-      }
-  
-      // If logging in as a user fails, try logging in as an admin
-      console.log('Attempting admin login...');
-      const adminResponse = await axios.post('http://localhost:8080/auth/admin-login', {
-        email,
-        password,
-      });
-  
-      console.log('Admin Response:', adminResponse.data);
-  
-      if (adminResponse && adminResponse.data) {
-        const { token } = adminResponse.data;
-        localStorage.setItem("token", token);
-  
-        setSuccessMessage("Login successful");
+      } catch (error) {
+        console.error('Login Error:', error);
+      
+        setErrorMessage(error.response ? error.response.data.message : error.message || 'Login failed');
         setSnackbarOpen(true);
-  
-        // Redirect to the admin dashboard
-        navigate('/Admin');
-        return;
       }
-  
-      // If both login attempts fail
-      setErrorMessage("Login failed");
-      setSnackbarOpen(true);
-    } catch (error) {
-      console.error("Login Error:", error);
-  
-      setErrorMessage(error.response ? error.response.data.message : error.message);
-      setSnackbarOpen(true);
-    }
+
+      try {
+        console.log('Attempting admin login...');
+        const adminResponse = await axios.post('http://localhost:8080/auth/admin-login', {
+          email,
+          password,
+        });
+      
+        console.log('Admin Response:', adminResponse.data);
+      
+        if (adminResponse && adminResponse.data && adminResponse.data.token) {
+          const { token } = adminResponse.data;
+          localStorage.setItem('token', token);
+      
+          setSuccessMessage('Admin login successful');
+          setSnackbarOpen(true);
+      
+          // Redirect to the admin dashboard
+          navigate('/Admin');
+          return;
+        }
+      
+        // If admin login attempt fails
+        setErrorMessage('Admin login failed');
+        setSnackbarOpen(true);
+      } catch (error) {
+        console.error('Admin Login Error:', error);
+      
+        setErrorMessage(error.response ? error.response.data.message : error.message || 'Admin login failed');
+        setSnackbarOpen(true);
+      }
+
+    }catch{}
   };
   
   
