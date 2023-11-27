@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Admin.css';
 import Card from '../Components/Card.js';
 
 
@@ -36,18 +35,20 @@ const CardsPage = () => {
 
   return (
     <>
+    <div className='page-size-first-row'>
       <div className="card-container">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            imageUrl={card.imageUrl}
-            title={card.title}
-            faculty={card.faculty}
-            nume={card.nume}
-            prenume={card.prenume}
-            cod={card.cod}
-          />
-        ))}
+          {cards.map((card) => (
+            <Card
+              key={card.id}
+              imageUrl={card.imageUrl}
+              title={card.title}
+              faculty={card.faculty}
+              nume={card.nume}
+              prenume={card.prenume}
+              cod={card.cod}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
