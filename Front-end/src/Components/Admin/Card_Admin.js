@@ -23,9 +23,7 @@ const Card = ({ imageUrl, title, faculty, nume, prenume, cod }) => {
 
   const handleDelete = async () => {
     try {
-      console.log('Deleting Materie with Cod_Materie:', cod);
       await axios.delete(`http://localhost:8080/api/delete-materie/${cod}`);
-      console.log('Materie deleted successfully');
     } catch (error) {
       console.error('Error deleting materie:', error);
     }

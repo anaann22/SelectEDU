@@ -152,13 +152,10 @@ app.post('/api/add-materie',async (req, res) => {
 app.delete('/api/delete-materie/:cod_materie', async (req, res) => {
   try {
     const codMaterie = req.params.cod_materie;
-    console.log('Received Cod_Materie:', codMaterie);
 
     const query = { Cod_Materie: parseInt(codMaterie, 10) };
-    console.log('MongoDB Query:', query);
 
     const materie = await Materie.findOne(query);
-    console.log('Found Materie:', materie);
 
     if (!materie) {
       return res.status(404).json({ error: 'Materie not found' });
