@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/AddMaterieCard.css';
+import '../../css/AddMaterieCard.css';
 
 const AddMaterieCard = ({ onAddMaterie }) => {
   const [newMaterie, setNewMaterie] = useState({

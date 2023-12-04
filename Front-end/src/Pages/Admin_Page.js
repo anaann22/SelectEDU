@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Side from '../Components/Side_bar.js';
-import CardsPage from '../Components/CardsPage.js';
+import Side from '../Components/Admin/Side_bar.js';
+import CardsPage from '../Components/Admin/CardsPage.js';
 
 
 const Admin_Page = () => {

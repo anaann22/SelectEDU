@@ -18,20 +18,37 @@
   font-size: calc(8px + 2vmin);
   color: white;
 }
-
 .right-component {
   min-height: 100vh;
-  max-width: 100vh;
+  max-width: 50vw; 
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   font-size: calc(7px + 3vmin);
   color: rgb(0, 0, 0);
-  position: fixed; 
+  position: fixed;
   top: 0;
-  right: 20vh;
-  /* border: 3px solid red; */
+  right: 0;
+  bottom: 0;
+  left: 50vw; 
+}
+
+
+.button.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
 }
 
 
@@ -81,5 +98,8 @@ a{
   max-width: 20px;
 }
 
-
-
+.error {
+  color: #ff0000; 
+  font-size: 14px; 
+  margin-top: 2px;
+}

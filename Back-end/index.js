@@ -34,7 +34,6 @@ app.post('/auth/login', async (req, res) => {
       });
     }
 
-    // Compară parola direct
     if (req.body.password !== user.password) {
       return res.status(404).json({
         message: 'Login sau parola incorecta',
@@ -65,7 +64,6 @@ app.post('/auth/login', async (req, res) => {
   }
 });
 
-// ... (other imports)
 
 app.post('/auth/admin-login', async (req, res) => {
   try {
@@ -73,7 +71,7 @@ app.post('/auth/admin-login', async (req, res) => {
 
     if (!admin) {
       return res.status(404).json({
-        message: 'Admin inexistent',
+        message: 'Credentialele sunt gresite.',
       });
     }
 
@@ -150,6 +148,33 @@ app.post('/api/add-materie',async (req, res) => {
   }
 
 });
+
+app.delete('/api/delete-materie/:cod_materie', async (req, res) => {
+  try {
+    const codMaterie = req.params.cod_materie;
+    console.log('Received Cod_Materie:', codMaterie);
+
+    const query = { Cod_Materie: parseInt(codMaterie, 10) };
+    console.log('MongoDB Query:', query);
+
+    const materie = await Materie.findOne(query);
+    console.log('Found Materie:', materie);
+
+    if (!materie) {
+      return res.status(404).json({ error: 'Materie not found' });
+    }
+
+    await Materie.findOneAndDelete(query);
+
+    res.status(200).json({ message: 'Materie deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+
+
+
 
 
 

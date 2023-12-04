@@ -1,6 +1,6 @@
-import '../css/Side_bar.css';
-import carte from '../Poze/books.png';
-import AddMaterieCard from '../Components/AddMaterieCard.js';
+import '../../css/Side_bar.css';
+import carte from '../../Poze/books.png';
+import AddMaterieCard from './AddMaterieCard.js';
 import { useState } from 'react';
 
 const Side_bar = () => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../css/Card.css';
+import '../../css/Card.css';
+import axios from 'axios';
 
 const Card = ({ imageUrl, title, faculty, nume, prenume, cod }) => {
   const [imageData, setImageData] = useState('');
@@ -19,6 +20,18 @@ const Card = ({ imageUrl, title, faculty, nume, prenume, cod }) => {
     fetchImageData();
   }, [imageUrl]);
 
+
+  const handleDelete = async () => {
+    try {
+      console.log('Deleting Materie with Cod_Materie:', cod);
+      await axios.delete(`http://localhost:8080/api/delete-materie/${cod}`);
+      console.log('Materie deleted successfully');
+    } catch (error) {
+      console.error('Error deleting materie:', error);
+    }
+  };
+  
+
   return (
     <div className="card">
       <img src={imageData} alt={title} className="card-image" />
@@ -28,7 +41,7 @@ const Card = ({ imageUrl, title, faculty, nume, prenume, cod }) => {
         <p className="card-faculty">{faculty}</p>
         <p className="card-name">Profesor: {nume} {prenume}</p> 
         <div className="card-buttons">
-          <button>Sterge materia</button>
+          <button className="button-card" onClick={handleDelete}>Sterge materia</button>
         </div>
       </div>
     </div>
