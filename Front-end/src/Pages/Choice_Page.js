@@ -21,7 +21,7 @@ const Choice_Page = () => {
                 </div>
 
                 <div className="right-choice">
-                    <button>Alegere discipline complementare</button>
+                    <button onClick={() => navigateTo("/UserChoice")}>Alegere discipline complementare</button>
                     <img src={school} className="img" alt="Right Choice Image"/>
                 </div>
             </div>

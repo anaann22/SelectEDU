@@ -5,6 +5,7 @@ import Login from './Pages/Login_Page.js';
 import Choice from './Pages/Choice_Page.js';
 import Admin from './Pages/Admin_Page.js';
 import User from './Pages/User_Page.js';
+import UserChoice from './Pages/User_Choice.js';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/Choice" element={<Choice />} />
         <Route path="/Admin" element={<Admin />} />
         <Route path="/User" element={<User />} />
+        <Route path="/UserChoice" element={<UserChoice />} />
       </Routes>
       </Router>
   );

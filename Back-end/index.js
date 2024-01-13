@@ -170,6 +170,25 @@ app.delete('/api/delete-materie/:cod_materie', async (req, res) => {
   }
 });
 
+app.post('/api/alegere-materie/:cod_materie', async (req, res) => {
+  try {
+    const codMaterie = req.params.cod_materie;
+
+    const query = { Cod_Materie: parseInt(codMaterie, 10) };
+
+    const materie = await Materie.findOne(query);
+
+    if (!materie) {
+      return res.status(404).json({ error: 'Materie not found' });
+    }
+
+    
+  }catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+
 
 
 
