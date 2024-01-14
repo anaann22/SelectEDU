@@ -14,7 +14,7 @@ const Confirm = () => {
 
   return (
     <>
-      <div className="card">
+      <div className="card2">
         <h1>Felicitări Nume Prenume !</h1>
         <p>
           Ai ajuns la finalul procesului de selecție
