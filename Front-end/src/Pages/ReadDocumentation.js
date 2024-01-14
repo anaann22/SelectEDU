@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/readDoc.css'; 
 import { useNavigate } from 'react-router-dom';
-import right from '../Poze/right.png';
+
 
 const ReadDocumentation = () => {
     const navigate = useNavigate();
@@ -100,7 +100,7 @@ return (
                     {/* Adaugă altele asemănătoare pentru mai multe înregistrări */}
                 </tbody>
             </table>
-            <div className="button-card" onClick={handleNextPage}>
+            <div className="button-card2" onClick={handleNextPage}>
              <button>Urmatoarea pagina</button>
 </div>
 

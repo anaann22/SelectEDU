@@ -67,7 +67,7 @@
 
 
 
-.button-card {
+.button-card2 {
   background-image: url('/src/Poze/background.png');
   border: 0;
   border-radius: 12px;
@@ -105,11 +105,6 @@ vertical-align:middle;
 .button-card .button-text {
   flex: 1;
 }
-
-
-
-
-
 
 .button-card:not([disabled]):focus {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
