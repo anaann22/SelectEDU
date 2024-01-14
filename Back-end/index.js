@@ -271,16 +271,66 @@ app.get('/all-tabel-info', async (req, res) => {
 
 
 
+  app.get('/api/user-materii', async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
 
+        const decodedToken = jwt.verify(token, 'your-secret-key');
 
+        const userId = decodedToken.userId;
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ error: 'ID utilizator invalid' });
+        }
 
+        const user = await UserModel.findById(userId);
 
+        if (!user) {
+            return res.status(404).json({ error: 'Utilizatorul nu a fost găsit' });
+        }
 
+        res.status(200).json({
+            userId: user._id,
+            Nume: user.Nume,
+            Prenume: user.Prenume,
+            materie1: user.materie1,
+            materie2: user.materie2,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error', message: error.message });
+    }
+});
 
+app.get('/api/user-materii/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
 
+    // Verifică dacă userId este un ObjectId valid
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ error: 'ID utilizator invalid' });
+    }
 
+    // Găsește utilizatorul după ID
+    const user = await UserModel.findById(userId);
 
+    if (!user) {
+      return res.status(404).json({ error: 'Utilizatorul nu a fost găsit' });
+    }
 
-
-
-
+    // Returnează materiile asociate utilizatorului, inclusiv numele corect
+    res.status(200).json({
+      userId: user._id,
+      Nume: user.Nume,  
+      Prenume: user.Prenume,
+      materie1: user.materie1,
+      materie2: user.materie2,
+      // Alte informații despre materii, dacă sunt disponibile
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+  
+  
+  
