@@ -37,6 +37,14 @@ const MaterieSchema = new mongoose.Schema({
     enum: ['Semestrul I', 'Semestrul II'], 
     required: true
   },
+  numarAlegeri: {
+    type: Number,
+    default: 0,
+  },
+  numarMaximUtilizatori: {
+    type: Number,
+    required: true,
+  },
 }, {
   timestamps: true
 });

@@ -187,7 +187,38 @@ app.post('/api/alegere-materie/:cod_materie', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error', message: error.message });
   }
+
 });
+
+app.post('/api/alegere-materie/:userId/:cod_materie', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const codMaterie = req.params.cod_materie;
+
+    const user = await UserModel.findById(userId);
+    const materie = await Materie.findOne({ Cod_Materie: parseInt(codMaterie, 10) });
+
+    if (!user || !materie) {
+      return res.status(404).json({ error: 'Utilizator sau materie nu există' });
+    }
+
+    // Verificați dacă numărul total de alegeri pentru materie este sub limita specificată
+    if (materie.numarAlegeri < materie.numarMaximUtilizatori) {
+      // Dacă da, permiteți alegerea și actualizați numărul de alegeri pentru materie
+      await Materie.findByIdAndUpdate(materie._id, { numarAlegeri: materie.numarAlegeri + 1 });
+      await UserModel.findByIdAndUpdate(userId, { materie1: codMaterie });
+      res.status(200).json({ message: 'Alegere materie reușită' });
+    } else {
+      // Dacă nu, refuzați alegerea
+      res.status(403).json({ error: 'Numărul maxim de alegeri pentru materie a fost atins' });
+    }
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+
 
 
 
