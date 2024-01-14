@@ -219,6 +219,57 @@ app.post('/api/alegere-materie/:userId/:cod_materie', async (req, res) => {
   }
 });
 
+// POST pentru a adăuga un nou tabel
+app.post('/add-tabel', async (req, res) => {
+  try {
+    const newTabelData = req.body;
+
+    // Verificăm dacă există deja un tabel pentru aceeași facultate
+    const existingTabel = await Tabel.findOne({ 'facultati.nume': newTabelData.facultati[0].nume });
+
+    if (existingTabel) {
+      return res.status(409).json({
+        message: 'Există deja un tabel pentru această facultate',
+      });
+    }
+
+    // Adăugăm noul tabel în baza de date
+    const createdTabel = await Tabel.create(newTabelData);
+
+    res.status(201).json({
+      id: createdTabel._id.toString(),
+      message: 'Tabel creat cu succes',
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+
+app.get('/all-tabel-info', async (req, res) => {
+  try {
+    const allTabelInfo = await Tabel.find();
+
+    const tabelInfoArray = allTabelInfo.map((tabel) => ({
+      id: tabel._id.toString(),
+      facultati: tabel.facultati.map((facultate) => ({
+        nume: facultate.nume,
+        specialitati: facultate.specialitati.map((specialitate) => ({
+          nume: specialitate.nume,
+          semestre: specialitate.semestre
+        }))
+      }))
+    }));
+
+    res.header('Content-Type', 'application/json');
+    res.json(tabelInfoArray);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+
+
 
 
 
