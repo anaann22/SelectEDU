@@ -1,0 +1,68 @@
+
+.documentation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aliniază containerele pe axa orizontală în centrul paginii */
+  }
+  
+  .read-documentation-page {
+    background-image: url('/src/Poze/background.png');
+    border: 2px solid rgb(131, 127, 127);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+  
+  .read-documentation-page h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .read-documentation-page p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Stiluri pentru containerul tabelului */
+  .table-container {
+    margin: 20px auto;
+  }
+
+/* Adaugă acest bloc pentru stilul pentru ReadDocumentation tabel */
+
+.read-documentation-table {
+    width: 60%; /* Ajustează lățimea tabelului după preferințele tale */
+    margin: 20px auto; /* Aliniază tabelul în centrul paginii */
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgb(131, 127, 127);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(122, 99, 99);
+}
+
+/* Restul codului rămâne neschimbat */
+
+
+.read-documentation-table th,
+.read-documentation-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    /* Adaugă stilurile pentru hover aici */
+    background-color: rgba(255,255,255,0);
+    transition: all 0.2s linear; 
+    transition-delay: 0.3s, 0s;
+    opacity: 0.6;
+}
+
+/* Stil pentru rândurile alternative */
+.read-documentation-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+  
