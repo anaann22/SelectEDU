@@ -1,9 +1,16 @@
 import React from 'react';
-import '../css/readDoc.css';  // Asigură-te că acest import este corect și că punctează către fișierul CSS
+import '../css/readDoc.css'; 
+import { useNavigate } from 'react-router-dom';
+import right from '../Poze/right.png';
 
 const ReadDocumentation = () => {
-    // În componenta ReadDocumentation.js
+    const navigate = useNavigate();
+
+    const handleNextPage = () => {
+        navigate('/User');
+    };
 return (
+    
     <div className="documentation-container">
       <div className="read-documentation-page">
         <h1>Ghid utilizator</h1>
@@ -93,6 +100,9 @@ return (
                     {/* Adaugă altele asemănătoare pentru mai multe înregistrări */}
                 </tbody>
             </table>
+            <div className="button-card" onClick={handleNextPage}>
+             <button>Urmatoarea pagina</button>
+</div>
 
         </div>
     );
