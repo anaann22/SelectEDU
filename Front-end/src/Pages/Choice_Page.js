@@ -1,4 +1,3 @@
-// Import necessary modules and images
 import React from 'react';
 import '../css/Choice.css';
 import book from '../Poze/open-book.png';
@@ -58,4 +57,3 @@ const Choice_Page = () => {
   };
   
   export default Choice_Page;
-  

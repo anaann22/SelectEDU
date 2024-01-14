@@ -38,7 +38,7 @@
     transition: transform 0.4s ease;
 }
 
-.left-choice:hover, .right-choice:hover, .confirm-choice:hover {
+.left-choice:hover, .right-choice:hover, .confirm-choice:hover, .middle-choice:hover {
     transform: translate(2px, 2px);
 }
 
