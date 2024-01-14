@@ -270,7 +270,7 @@ app.get('/all-tabel-info', async (req, res) => {
 });
 
 
-
+// nu preia datele utilizatorului logat
   app.get('/api/user-materii', async (req, res) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
@@ -301,6 +301,8 @@ app.get('/all-tabel-info', async (req, res) => {
     }
 });
 
+
+//ar trebui sa dea automat datele utilozatorului logat in functie de token
 app.get('/api/user-materii/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;

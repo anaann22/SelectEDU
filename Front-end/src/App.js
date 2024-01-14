@@ -8,6 +8,8 @@ import Admin from './Pages/Admin_Page.js';
 import User from './Pages/User_Page.js';
 import UserChoice from './Pages/User_Choice.js';
 import ReadDocumentation from './Pages/ReadDocumentation.js';
+import Choice_Page from './Pages/Choice_Page.js';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/UserChoice" element={<UserChoice />} />
         <Route path="/ReadDocumentation" element={<ReadDocumentation/>}/>
         <Route path="/Confirm" element={<Confirm/>}/>
+        <Route path="/ChoicePage" element={<Choice_Page/>}/>
       </Routes>
       </Router>
   );
