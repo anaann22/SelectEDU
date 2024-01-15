@@ -32,7 +32,6 @@ return (
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Adaugă aici rânduri pentru fiecare înregistrare din baza de date sau altă sursă */}
                     <tr>
                         <td>2</td>
                         <td>Facultatea de Arte și Design </td>
@@ -89,7 +88,6 @@ return (
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Adaugă aici rânduri pentru fiecare înregistrare din baza de date sau altă sursă */}
                     <tr>
                         <td>2</td>
                         <td>Facultatea de Matematică și Informatică </td>
@@ -97,11 +95,155 @@ return (
                         <td> DA </td>
                         <th> ---- </th>
                     </tr>
-                    {/* Adaugă altele asemănătoare pentru mai multe înregistrări */}
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Matematică și Informatică </td>
+                        <td>Informatică Engleză</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Matematică și Informatică </td>
+                        <td>Informatică aplicată</td>
+                        <td> ---- </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Matematică și Informatică </td>
+                        <td>Informatică</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Matematică și Informatică </td>
+                        <td>Informatică Engleză</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Matematică și Informatică </td>
+                        <td>Informatică aplicată</td>
+                        <td> ---- </td>
+                        <th> ---- </th>
+                    </tr>
+                </tbody>
+            </table>
+            <table className="read-documentation-table">
+                <thead>
+                    <tr>
+                        <th>An</th>
+                        <th>Facultate</th>
+                        <th>Specialitate</th>
+                        <th>Semestru I</th>
+                        <th>Semestru II</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Chimie, Biologie, Geografie </td>
+                        <td>Geografia turismului </td>
+                        <td> DA </td>
+                        <th> DA </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Chimie, Biologie, Geografie </td>
+                        <td>Științe aplicate în criminalistică</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Chimie, Biologie, Geografie </td>
+                        <td>Biochimie</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Chimie, Biologie, Geografie </td>
+                        <td>Științe aplicate în criminalistică</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Chimie, Biologie, Geografie </td>
+                        <td>Geografia turismului </td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Chimie, Biologie, Geografie </td>
+                        <td>Biochimie</td>
+                        <td> ---- </td>
+                        <th> DA </th>
+                    </tr>
+                </tbody>
+            </table>
+            <table className="read-documentation-table">
+                <thead>
+                    <tr>
+                        <th>An</th>
+                        <th>Facultate</th>
+                        <th>Specialitate</th>
+                        <th>Semestru I</th>
+                        <th>Semestru II</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Fizică </td>
+                        <td>Fizică informatică </td>
+                        <td> ---- </td>
+                        <th> DA </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Fizică </td>
+                        <td>Fizică </td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Facultatea de Fizică </td>
+                        <td>Fizică medicală</td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Fizică </td>
+                        <td>Fizică </td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Fizică </td>
+                        <td>Fizică medicală </td>
+                        <td> DA </td>
+                        <th> ---- </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Facultatea de Fizică </td>
+                        <td>Fizică informatică</td>
+                        <td> ---- </td>
+                        <th> DA </th>
+                    </tr>
                 </tbody>
             </table>
             <div className="button-card2" onClick={handleNextPage}>
-             <button>Urmatoarea pagina</button>
+             <button>Următoarea pagina</button>
 </div>
 
         </div>

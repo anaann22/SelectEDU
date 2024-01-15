@@ -17,7 +17,7 @@ const Side_bar = () => {
             <div className='containder-side first'>
                 <img src={carte} alt="img" className='img' />
                 <button className="button" onClick={() => setShowAddMaterieCard(!showAddMaterieCard)}>
-                    {showAddMaterieCard ? 'Inapoi' : 'Adaugare materie'}
+                    {showAddMaterieCard ? 'Înapoi' : 'Adăugare materie'}
                 </button>
                 {showAddMaterieCard && <AddMaterieCard onAddMaterie={handleAddMaterie} />}
             </div>

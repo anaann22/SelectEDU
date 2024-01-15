@@ -18,7 +18,7 @@ const User_Page = () => {
       <CardsPage />
 
       <div className="button-card2" onClick={handleNextPage}>
-             <button>Urmatoarea pagina</button>
+             <button>Următoarea pagina</button>
 </div>
     </>
   );

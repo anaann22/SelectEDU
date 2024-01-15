@@ -20,12 +20,12 @@ const Search_Bar = ({ onSearch }) => {
       <input
         type="text"
         className="search-input"
-        placeholder="Cautare.."
+        placeholder="Căutare.."
         value={searchTerm}
         onChange={handleChange}
       />
       <button className="button" onClick={handleSearch}>
-        Search
+        Caută
       </button>
     </div>
   );

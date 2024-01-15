@@ -17,7 +17,7 @@ const Side_bar_user = () => {
                 <img src={carte} alt="img" className='img' />
             </div>
             <div className='containder-side third'>
-                <button className='button' onClick={() => navigateTo("/Choice")}>Inapoi</button>
+                <button className='button' onClick={() => navigateTo("/Choice")}>Înapoi</button>
             </div>
         </div>
         
