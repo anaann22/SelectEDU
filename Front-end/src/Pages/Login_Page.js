@@ -128,8 +128,9 @@ const Login_Page = () => {
     <div className="App">
       <div className="left-component">
         <a>Bine ai venit!</a>
-        <a>Aveti doar o posibilitate de a alege disciplina complementară. Aceasta nu poate fi modificată după, alegeți cu precauție și citiți fișa disciplinei.</a>
-        <a>După procesul de selecție și distribuire, veți primi un mail, cu confirmarea alegerii și orarul.</a>
+        <a>Alegerea complementarei se realizează prin intermediul contului de uvt!</a>
+        <a>Aveti doar o posibilitate de a alege disciplina complementară. Aceasta nu poate fi modificată după, alegeți cu precauție!</a>
+
       </div>
 
       <div className="right-component">

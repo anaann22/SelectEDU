@@ -122,6 +122,7 @@ app.get('/api/all-image-info', async (req, res) => {
       Faculty: materie.Faculty,
       Poza_Materie: `data:image/png;base64,${materie.Poza_Materie.toString('base64')}`,
       Semestru: materie.Semestru,
+      numarMaximUtilizatori: materie.numarMaximUtilizatori,
     }));
 
     res.header('Content-Type', 'application/json');

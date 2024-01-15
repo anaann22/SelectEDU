@@ -1,51 +1,141 @@
 import React, { useEffect, useState } from 'react';
-import '../../css/Card.css';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import Confirm from '../../Pages/Confirm';
 import axios from 'axios';
+import '../../css/readDoc.css';
 
-const Card_User_Choice = ({ imageUrl, title, faculty, nume, prenume, cod, semestru }) => {
-  const [imageData, setImageData] = useState('');
-  
+const YourSeparatedTablesComponent = () => {
+  const [cards, setCards] = useState([]);
+  const [selectedMaterii, setSelectedMaterii] = useState([]);
+  const [selectedMateriePopup, setSelectedMateriePopup] = useState(false);
+  const [isMaterieSelected, setIsMaterieSelected] = useState(false);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    const fetchImageData = async () => {
+    const fetchAllImageInfo = async () => {
       try {
-        const response = await fetch(imageUrl);
-        const blob = await response.blob();
-        const dataUrl = URL.createObjectURL(blob);
-        setImageData(dataUrl);
+        const response = await axios.get('http://localhost:8080/api/all-image-info');
+        const allImageInfo = response.data;
+
+        const imageDataArray = allImageInfo.map((imageInfo) => ({
+          id: imageInfo.id,
+          imageUrl: imageInfo.Poza_Materie,
+          title: imageInfo.Nume_Materie,
+          faculty: imageInfo.Faculty,
+          cod: imageInfo.Cod_Materie,
+          nume: imageInfo.Profesor_Nume,
+          prenume: imageInfo.Profesor_Prenume,
+          semestru: imageInfo.Semestru,
+          studenti: imageInfo.numarMaximUtilizatori,
+        }));
+
+        setCards(imageDataArray);
       } catch (error) {
-        console.error('Error fetching image data:', error);
+        console.error(error);
       }
     };
 
-    fetchImageData();
-  }, [imageUrl]);
+    fetchAllImageInfo();
+  }, []);
 
+  // Filter cards for Semester I
+  const semester1Cards = cards.filter((card) => card.semestru === 'Semestrul I');
 
-  const handleChoice = async () => {
-    try {
-      await axios.post(`http://localhost:8080/api/alegere-materie/${cod}`);
-    } catch (error) {
-      console.error('Error choosing the subject:', error);
+  // Filter cards for Semester II
+  const semester2Cards = cards.filter((card) => card.semestru === 'Semestrul II');
+
+  const handleChooseMaterie = (cod, semestru, title) => {
+    if (selectedMaterii.length < 2) {
+      setSelectedMaterii((prevSelectedMaterii) => [...prevSelectedMaterii, { cod, semestru, title }]);
+      setSelectedMateriePopup(true);
+  
+      if (selectedMaterii.length + 1 === 2) {
+        // Navigate to the confirmation page when two materii are selected
+        navigate('/Confirm', { state: { selectedMaterii: [...selectedMaterii, { cod, semestru, title }] } });
+      }
+    } else {
+      console.log('You can only choose up to two materii.');
     }
   };
   
 
-  return (
-    <div className="card">
-      <img src={imageData} alt={title} className="card-image" />
+  const buttonClass = isMaterieSelected ? 'selected-button' : 'default-button';
 
-      <div className="card-content">
-        <h3 className="card-title">{cod}: {title}</h3>
-        <p className="card-faculty">{faculty}</p>
-        <p className="card-sem">Semestru : {semestru}</p>
-        <p className="card-name">Profesor: {nume} {prenume}</p> 
-        <div className="card-buttons">
-          <button className="button-card" onClick={handleChoice}>Alege materia</button>
-        </div>
+  return (
+    <div className="table-container">
+      {/* Semester I Table */}
+      <table className="read-documentation-table">
+        <caption className='caption'>Semestrul I</caption>
+        <thead>
+          <tr>
+            <th>Cod</th>
+            <th>Materie</th>
+            <th>Facultate</th>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>Semestru</th>
+            <th>Locuri alocate</th>
+            <th>Alegere</th>
+          </tr>
+        </thead>
+        <tbody>
+          {semester1Cards.map((card) => (
+            <tr key={card.cod}>
+              <td>{card.cod}</td>
+              <td>{card.title}</td>
+              <td>{card.faculty}</td>
+              <td>{card.nume}</td>
+              <td>{card.prenume}</td>
+              <td>{card.semestru}</td>
+              <td>{card.studenti}</td>
+              <td>
+                <button onClick={() => handleChooseMaterie(card.cod, card.semestru, card.title)}>
+                Aleg aceasta materie
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* Semester II Table */}
+      <table className="read-documentation-table">
+        <caption className='caption'>Semestrul II</caption>
+        <thead>
+          <tr>
+            <th>Cod</th>
+            <th>Materie</th>
+            <th>Facultate</th>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>Semestru</th>
+            <th>Locuri alocate</th>
+            <th>Alegere</th>
+          </tr>
+        </thead>
+        <tbody>
+          {semester2Cards.map((card) => (
+            <tr key={card.cod}>
+              <td>{card.cod}</td>
+              <td>{card.title}</td>
+              <td>{card.faculty}</td>
+              <td>{card.nume}</td>
+              <td>{card.prenume}</td>
+              <td>{card.semestru}</td>
+              <td>{card.studenti}</td>
+              <td>
+                <button onClick={() => handleChooseMaterie(card.cod, card.semestru, card.title)}>
+                  Aleg aceasta materie
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
       </div>
-    </div>
   );
 };
 
-export default Card_User_Choice;
+export default YourSeparatedTablesComponent;

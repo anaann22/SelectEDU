@@ -5,20 +5,12 @@ import '../css/readDoc.css';
 import { useNavigate } from 'react-router-dom';
 
 const User_Choice = () => {
-  const navigate = useNavigate();
-
-    const handleNextPage = () => {
-        navigate('/Confirm');
-    };
 
   return (
     <>
       <Side />
       <CardsChoice />
 
-      <div className="button-card2" onClick={handleNextPage}>
-             <button>Următoarea pagina</button>
-</div>
     </>
   );
 };

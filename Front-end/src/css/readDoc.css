@@ -1,56 +1,65 @@
 
 .documentation-container {
     display: flex;
+    margin-top: 10%;
     flex-direction: column;
     align-items: center; /* Aliniază containerele pe axa orizontală în centrul paginii */
   }
   
   .read-documentation-page {
+    /* background-color: rgb(234, 151, 151); */
     background-image: url('/src/Poze/background.png');
-    border: 2px solid rgb(131, 127, 127);
+    /* border: 2px solid rgb(131, 127, 127); */
     border-radius: 10px;
+    background-size: cover; 
+    background-repeat: no-repeat;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     padding: 20px;
-    text-align: center;
     margin: 20px auto;
     max-width: 800px;
   }
   
 
-
   
   .read-documentation-page h1 {
     font-size: 28px;
     color: #333;
+    text-align: center;
     margin-bottom: 15px;
   }
   
   .read-documentation-page p {
     font-size: 18px;
-    color: #555;
+    text-align: center;
+    color: #000000;
     margin-bottom: 20px;
   }
   
   /* Stiluri pentru containerul tabelului */
   .table-container {
-    margin: 20px auto;
+    max-width: 90%;
+    margin-left: 20%;
+    /* border: 2px solid red; */
   }
 
 /* Adaugă acest bloc pentru stilul pentru ReadDocumentation tabel */
 
 .read-documentation-table {
-    width: 60%; /* Ajustează lățimea tabelului după preferințele tale */
-    margin: 20px auto; /* Aliniază tabelul în centrul paginii */
+    width: 80%; 
+    margin-left: 10%;
     border-collapse: collapse;
     background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid rgb(131, 127, 127);
+    border: 2px solid rgb(134, 126, 126);
     border-radius: 10px;
+    margin-bottom: 40px;
     box-shadow: 5px 5px 5px 5px rgb(122, 99, 99);
 }
 
 /* Restul codului rămâne neschimbat */
 
-
+.caption{
+  font-size: 22px;
+}
 .read-documentation-table th,
 .read-documentation-table td {
     padding: 15px;
@@ -71,50 +80,22 @@
 
 
 .button-card2 {
-  background-image: url('/src/Poze/background.png');
-  border: 0;
-  border-radius: 12px;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: rgb(247, 213, 213);
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
   font-size: 16px;
-  font-weight: 500;
-  line-height: 2.5;
-  outline: transparent;
-  padding: 0 1rem;
-  text-align: center;
-display:table-cell;
-vertical-align:middle;
-  text-decoration: none;
-  transition: box-shadow .2s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-
-  /* Poziționarea în partea dreaptă jos */
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+  position: absolute;
+  top: 62%;
+  max-width: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.button-card button {
-  flex: 1;
-}
-
-.button-card .button-text {
-  flex: 1;
-}
-
-.button-card:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
-}
-
-.button-card:not([disabled]):hover {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+.buton-card2:hover {
+  background-color: #ffbdbd;
 }
 
 

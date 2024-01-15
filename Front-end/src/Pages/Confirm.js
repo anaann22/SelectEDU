@@ -1,40 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import Side from '../Components/User/Side_bar_user.js';
-import CardsChoice from '../Components/User/CardsChoice.js';
-import '../css/readDoc.css'; 
-import '../css/confirm.css'; 
+import React from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import '../css/confirm.css'; 
 
 const Confirm = () => {
+  const location = useLocation();
+  const selectedMaterii = location.state?.selectedMaterii || [];
+
   const navigate = useNavigate();
 
-  const handleNextPage = () => {
-    navigate('/ChoicePage');
+  const handleButtonClick = () => {
+    navigate('/Choice');
   };
 
   return (
-    <>
-      <div className="card2">
-        <h1>Felicitări Nume Prenume !</h1>
-        <p>
-          Ai ajuns la finalul procesului de selecție
-          </p>
-          <p>
-          Aici găsești complementarele pe care le vei parcurge în acest an de studiu.
-          </p>
-        
-          <p>
-          Semestrul I .....
-          </p>
-          <p>
-          Semestrul II ....
-          </p>
-
+    <div className="container-confirm">
+      <div className="page">
+        <h1>Confirmare materii complementare alese:</h1>
+          {selectedMaterii.map((materie, index) => (
+            <p key={index}>{`Semestrul: ${materie.semestru}, Materie: ${materie.title}, Cod: ${materie.cod}`}</p>
+          ))}
+          <button className='buton-confirm'onClick={handleButtonClick}>Confirm selectia</button>
       </div>
-      <div className="button-card2" onClick={handleNextPage}>
-        <button>Ecran principal</button>
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -1,98 +1,67 @@
-#body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .card2 {
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em;
-    width: 80%;
-    margin: 130px auto 0;
-    max-width: 1200px;
-    height: 400px;
-    background-image: url('/src/Poze/background.png');
-    padding: 2rem 1.5rem;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-    border-radius: 15px
-  }
-  
-  .card-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-  
-  .card-avatar {
-    --size: 60px;
-    background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    transition: transform 0.2s ease;
-    margin-bottom: 1rem;
-  }
-  
-  .card-social {
-    transform: translateY(200%);
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    opacity: 0;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-  
-  .card-social__item {
-    list-style: none;
-  }
-  
-  .card-social__item svg {
-    display: block;
-    height: 18px;
-    width: 18px;
-    fill: #515F65;
-    cursor: pointer;
-    transition: fill 0.2s ease, transform 0.2s ease;
-  }
-  
-  /*Text*/
-  .card-title {
-    color: #333;
-    font-size: 1.5em;
-    font-weight: 600;
-    line-height: 2rem;
-  }
-  
-  .card-subtitle {
-    color: #859ba8;
-    font-size: 0.8em;
-  }
-  
-  /*Hover*/
-  .card2:hover {
-    box-shadow: 0 8px 50px #23232333;
-  }
-  
-  .card2:hover .card-info {
-    transform: translateY(-5%);
-  }
-  
-  .card2:hover .card-social {
-    transform: translateY(100%);
-    opacity: 1;
-  }
-  
-  .card-social__item svg:hover {
-    fill: #232323;
-    transform: scale(1.1);
-  }
-  
-  .card-avatar:hover {
-    transform: scale(1.1);
-  }
-  
+
+.container-confirm {
+  display:contents;
+  /* margin-top: 0%; */
+  flex-direction: column;
+  align-items: center; /* Aliniază containerele pe axa orizontală în centrul paginii */
+}
+
+.page {
+  /* background-color: rgb(234, 151, 151); */
+  background-image: url('/src/Poze/background.png');
+  /* border: 2px solid red; */
+  border-radius: 10px; 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 200px auto;
+  max-width: 70%;
+}
+
+
+
+.page h1 {
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.page p {
+  font-size: 18px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Stiluri pentru containerul tabelului */
+.table-confirm {
+  max-width: 90%;
+  margin-left: 20%;
+  /* border: 2px solid red; */
+}
+
+.buton-confirm {
+  background-color: rgb(247, 213, 213);
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+
+  /* Center the button horizontally and vertically */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.buton-confirm:hover {
+  background-color: #ffbdbd;
+}
+
+
+

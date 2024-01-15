@@ -6,20 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 const User_Page = () => {
-  const navigate = useNavigate();
-
-    const handleNextPage = () => {
-        navigate('/UserChoice');
-    };
 
   return (
     <>
       <Side />
       <CardsPage />
-
-      <div className="button-card2" onClick={handleNextPage}>
-             <button>Următoarea pagina</button>
-</div>
     </>
   );
 };

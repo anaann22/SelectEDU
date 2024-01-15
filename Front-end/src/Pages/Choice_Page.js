@@ -41,16 +41,16 @@ const Choice_Page = () => {
             <img src={school} className="img" alt="Right Choice Image"/>
           </div>
   
-          {/* Card for "Confirmare" */}
+          {/* Card for "Confirmare"
           <div className="confirm-choice">
             <button onClick={() => navigateTo("/Confirm")}>Confirmare</button>
             <img src={confirm} className="img" alt="Confirm Choice Image"/>
-          </div>
+          </div> */}
   
-          {/* Logout button */}
-          <div className="button-card2">
+          {/* Logout button
+          <div className="button-card">
             <button onClick={handleLogout}>Logout</button>
-          </div>
+          </div> */}
         </div>
       </div>
     );
