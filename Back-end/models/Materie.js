@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const MaterieSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   Nume_Materie: {
     type: String,
     required: true
@@ -44,7 +43,7 @@ const MaterieSchema = new mongoose.Schema({
   numarMaximUtilizatori: {
     type: Number,
     required: true,
-  },
+  }
 }, {
   timestamps: true
 });

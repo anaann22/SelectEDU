@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card.js';
 import Search_Bar from '../Search_Bar.js'; 
+import '../../css/cardPage.css';
 
 const CardsPage = () => {
   const [cards, setCards] = useState([]);
@@ -33,13 +34,12 @@ const CardsPage = () => {
       const lowercasedName = materie.title.toLowerCase();
       const codIncludesTerm =
         typeof materie.cod === 'number' && materie.cod.toString().includes(lowercasedSearchTerm);
-  
+
       return lowercasedName.includes(lowercasedSearchTerm) || codIncludesTerm;
     });
-  
+
     setFilteredMaterie(filteredData);
   };
-  
 
   useEffect(() => {
     const intervalId = setInterval(() => {

@@ -333,6 +333,24 @@ app.get('/api/user-materii/:userId', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error', message: error.message });
   }
 });
+
+app.post('/api/add-materie', async (req, res) => {
+  try {
+    // Creează o nouă instanță a schemei Materie folosind datele din corpul cererii
+    const newMaterie = new Materie(req.body);
+
+    // Salvează noul document în baza de date
+    await newMaterie.save();
+
+    // Răspunde cu un mesaj de succes
+    res.status(201).json({ message: 'Materie added successfully' });
+  } catch (error) {
+    console.error(error);
+    // Răspunde cu un mesaj de eroare și un cod de stare adecvat
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+});
+
   
   
   
