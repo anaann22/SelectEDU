@@ -20,6 +20,8 @@ const CardsChoice = () => {
         cod: imageInfo.Cod_Materie,
         nume: imageInfo.Profesor_Nume,
         prenume: imageInfo.Profesor_Prenume,
+        semestru: imageInfo.Semestru,
+      
       }));
 
       setCards(imageDataArray);
@@ -69,6 +71,7 @@ const CardsChoice = () => {
                   nume={card.nume}
                   prenume={card.prenume}
                   cod={card.cod}
+                  semestru={card.semestru}
                 />
               ))
             : cards.map((card) => (
@@ -80,6 +83,7 @@ const CardsChoice = () => {
                   nume={card.nume}
                   prenume={card.prenume}
                   cod={card.cod}
+                  semestru={card.semestru}
                 />
               ))}
         </div>

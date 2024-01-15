@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../css/Card.css';
 import axios from 'axios';
 
-const Card = ({ imageUrl, title, faculty, nume, prenume, cod }) => {
+const Card = ({ imageUrl, title, faculty, nume, prenume, cod, semestru }) => {
   const [imageData, setImageData] = useState('');
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const Card = ({ imageUrl, title, faculty, nume, prenume, cod }) => {
       <div className="card-content">
         <h3 className="card-title">{cod}: {title}</h3>
         <p className="card-faculty">{faculty}</p>
+        <p className="card-sem">Semestru : {semestru}</p>
         <p className="card-name">Profesor: {nume} {prenume}</p> 
       </div>
     </div>
